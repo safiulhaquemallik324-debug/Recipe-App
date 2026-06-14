@@ -1,0 +1,1285 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+
+/* ============================================================
+   GLOBAL / BASE STYLES
+   ============================================================ */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #fff8f1;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+/* ============================================================
+   FAVORITES PAGE
+   ============================================================ */
+
+.favorites-page {
+  max-width: 1200px;
+  margin: 40px auto 70px;
+  /* Responsive side padding so content doesn't touch screen edges on mobile */
+  padding: 0 16px;
+}
+
+.favorites-grid {
+  justify-content: flex-start;
+}
+
+.loading-text,
+.no-result {
+  background: #fff;
+  padding: 18px 22px;
+  border-radius: 16px;
+  color: #6b7280;
+  font-weight: 600;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ============================================================
+   APP WRAPPER
+   ============================================================ */
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8f1, #fff);
+  color: #1f2937;
+}
+
+/* ============================================================
+   NAVBAR
+   ============================================================ */
+
+.navbar {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 18px 26px;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(14px);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 15px 35px rgba(252, 128, 25, 0.12);
+  /* Allow navbar to wrap nicely on small screens */
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.logo,
+.footer h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 24px;
+}
+
+.logo svg,
+.footer h2 svg {
+  color: #fc8019;
+}
+
+.logo span,
+.footer span {
+  color: #fc8019;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+  /* Keep links in a row, but allow shrinking & horizontal scroll if needed */
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  border: none;
+  background: #fff3e8;
+  color: #1f2937;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  /* Prevent text wrapping inside link */
+  white-space: nowrap;
+  transition: 0.3s ease;
+}
+
+
+.nav-links a:hover{
+  background: #fc8019;
+  color: #fff;
+  transform: translateY(-3px);
+}
+/* ============================================================
+   SEARCH SUGGESTIONS BOX
+   ============================================================ */
+
+.suggestions-box {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%;
+  z-index: 99999;
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  /* Prevent suggestions list from getting too tall on small screens */
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.suggestion-item:hover {
+  background: #fff3e8;
+}
+
+.suggestion-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  object-fit: cover;
+  /* Avoid image shrinking in flex row */
+  flex-shrink: 0;
+}
+
+.suggestion-item span {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links button {
+  border: none;
+  background: #fff3e8;
+  color: #1f2937;
+  padding: 11px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+  /* Prevent text wrapping inside button */
+  white-space: nowrap;
+}
+
+.nav-links button:hover {
+  background: #fc8019;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+.cart-btn {
+  background: #fc8019 !important;
+  color: #fff !important;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+
+.hero {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 35px auto;
+  padding: 55px;
+  border-radius: 36px;
+  background:
+    radial-gradient(circle at top right, #ffd7b5, transparent 35%),
+    linear-gradient(135deg, #ffffff, #ffe9d5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  overflow: visible;
+  box-shadow: 0 20px 50px rgba(252, 128, 25, 0.13);
+  /* Ensure hero respects container width on all screens */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-content {
+  flex: 1;
+  position: relative;
+  z-index: 100;
+  /* Ensure content can shrink properly on small screens */
+  min-width: 0;
+}
+
+.hero h1 {
+  font-size: 52px;
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+}
+
+.hero h1 span {
+  color: #fc8019;
+}
+
+.hero p {
+  margin: 18px 0 28px;
+  max-width: 520px;
+  color: #6b7280;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ============================================================
+   SEARCH BOX
+   ============================================================ */
+
+.search-box {
+  position: relative;
+  z-index: 1000;
+
+  max-width: 560px;
+  width: 100%; /* Take full width of parent, capped by max-width */
+  background: #fff;
+  border-radius: 999px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-sizing: border-box;
+
+  box-shadow: 0 14px 35px rgba(0, 0, 0, .08);
+}
+
+.search-icon {
+  margin-left: 16px;
+  color: #fc8019;
+  font-size: 22px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  color: #1f2937;
+  /* Prevent input overflow on small screens */
+  min-width: 0;
+}
+
+.search-box input::placeholder {
+  color: #9ca3af;
+}
+
+.search-box button {
+  border: none;
+  background: #fc8019;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  /* Prevent button text wrapping */
+  white-space: nowrap;
+}
+
+.search-box input:focus {
+  outline: none;
+}
+
+.search-box:focus-within {
+  border: 1px solid #fc8019;
+  box-shadow:
+    0 0 0 6px rgba(252, 128, 25, 0.10);
+  transition: 0.3s ease-in-out;
+}
+
+.search-box button:hover {
+  background: #e96f08;
+  transform: scale(1.04);
+}
+
+.hero-img {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  padding: 14px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(252, 128, 25, 0.22);
+  /* Prevent shrinking issues, but allow scaling via media queries */
+  flex-shrink: 0;
+}
+
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ============================================================
+   MAIN CONTENT LAYOUT
+   ============================================================ */
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px 55px; /* Added horizontal padding for mobile */
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.recipes-section {
+  flex: 1;
+  max-width: 760px;
+  /* Allow shrinking properly inside flex container */
+  min-width: 0;
+}
+
+/* ============================================================
+   CATEGORIES
+   ============================================================ */
+
+.categories h2,
+.section-header h2 {
+  font-size: 26px;
+  margin-bottom: 18px;
+}
+
+.category-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.category-list button {
+  border: none;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 15px 22px;
+  border-radius: 22px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+.category-list button span {
+  display: flex;
+  color: #fc8019;
+  font-size: 20px;
+}
+
+.category-list button:hover {
+  background: #fc8019;
+  color: #fff;
+  transform: translateY(-5px);
+}
+
+.category-list button:hover span {
+  color: #fff;
+}
+
+/* ============================================================
+   SECTION HEADER
+   ============================================================ */
+
+.section-header {
+  margin: 38px 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* Wrap on small screens to avoid overflow */
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.section-header button {
+  border: none;
+  background: #fff3e8;
+  color: #fc8019;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ============================================================
+   RECIPE GRID
+   ============================================================ */
+
+.recipe-grid {
+  display: grid;
+  /* Responsive grid: auto-fill columns instead of fixed 320px,
+     ensures it adapts to container width on all screens */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.recipe-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  transition: 0.35s ease;
+  max-width: 420px;
+  width: 100%;
+}
+
+.recipe-card:hover {
+  transform: translateY(-9px);
+  box-shadow: 0 22px 45px rgba(252, 128, 25, 0.18);
+}
+
+.card-img {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: #ffe7d2;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.45s ease;
+}
+
+.recipe-card:hover .card-img img {
+  transform: scale(1.08);
+}
+
+.heart-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #ff4d6d;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
+}
+
+.heart-btn:hover {
+  transform: scale(1.12);
+  background: #ff4d6d;
+  color: #fff;
+}
+
+.card-content {
+  padding: 18px;
+}
+
+.card-content h3 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #f59e0b;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 18px;
+  /* Wrap info items on very narrow cards */
+  flex-wrap: wrap;
+}
+
+.card-info span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.card-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-btn,
+.view-btn {
+  flex: 1;
+  border: none;
+  padding: 12px 10px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.3s ease;
+  min-height: 46px;
+  white-space: nowrap;
+}
+
+.add-btn {
+  background: #fff3e8;
+  color: #fc8019;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 1px solid #ffd6b8;
+  white-space: nowrap;
+  min-height: 46px;
+}
+
+.add-btn svg {
+  font-size: 20px;
+}
+
+.add-btn:hover {
+  background: #fc8019;
+  color: #fff;
+}
+
+.view-btn {
+  background: #fc8019;
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: #e96f08;
+}
+
+/* ============================================================
+   SHOPPING DRAWER
+   ============================================================ */
+
+.shopping-drawer {
+  width: 300px;
+  background: #ffffff;
+  border-radius: 26px;
+  padding: 24px;
+  height: fit-content;
+  position: sticky;
+  top: 25px;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+  /* Prevent overflow shrinking issues on mobile */
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+.shopping-drawer h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+}
+
+.shopping-drawer h2 svg {
+  color: #fc8019;
+}
+
+.shopping-items {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shopping-items li {
+  background: #fff3e8;
+  color: #1f2937;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  /* Allow long text to wrap instead of overflowing */
+  word-break: break-word;
+}
+
+.item-count {
+  display: inline-block;
+  margin: 16px 0;
+  background: #fff3e8;
+  color: #fc8019;
+  padding: 8px 15px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.empty-list {
+  min-height: 130px;
+  padding: 28px 10px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border: 1px dashed #ffd6b8;
+  border-radius: 18px;
+  background: #fffaf5;
+}
+
+.clear-btn {
+  width: 100%;
+  margin-top: 18px;
+  border: none;
+  background: #fc8019;
+  color: #fff;
+  padding: 14px;
+  border-radius: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: 0.3s ease;
+}
+
+.clear-btn:hover {
+  background: #e96f08;
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   RECIPE MODAL
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  backdrop-filter: blur(8px);
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.recipe-modal {
+  width: 100%;
+  max-width: 850px;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  background: #fff;
+  border-radius: 28px;
+  position: relative;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.25);
+}
+
+.modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+
+  background: #fff;
+  color: #1f2937;
+  font-size: 22px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 10; /* Keep close button above modal content */
+}
+
+.modal-close:hover {
+  background: #fc8019;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.modal-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.modal-content {
+  padding: 28px;
+}
+
+.modal-content h2 {
+  font-size: 32px;
+  margin-bottom: 14px;
+  /* Allow long titles to wrap correctly */
+  word-break: break-word;
+}
+
+.modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.modal-tags span {
+  background: #fff3e8;
+  color: #fc8019;
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  font-weight: 700;
+}
+
+.modal-content h3 {
+  margin: 22px 0 12px;
+  font-size: 22px;
+}
+
+.ingredients-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px 18px;
+  padding-left: 20px;
+}
+
+.ingredients-list li {
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.instructions {
+  color: #4b5563;
+  line-height: 1.8;
+}
+
+.youtube-btn {
+  margin-top: 24px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #ff0000;
+  color: #fff;
+  text-decoration: none;
+
+  padding: 13px 20px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+/* ============================================================
+   PAGINATION
+   ============================================================ */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  /* Wrap pagination buttons on small screens */
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pagination button {
+  width: 48px;
+  height: 48px;
+
+  border: 1px solid #e5e7eb;
+  background: white;
+
+  cursor: pointer;
+}
+
+.pagination .active {
+  background: #2563eb;
+  color: white;
+}
+
+/* ============================================================
+   SKELETON LOADING
+   ============================================================ */
+
+.skeleton-card {
+  background: #fff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+.skeleton-img {
+  height: 210px;
+  background: linear-gradient(90deg, #f3f4f6, #e5e7eb, #f3f4f6);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.3s infinite;
+}
+
+.skeleton-content {
+  padding: 18px;
+}
+
+.skeleton-line,
+.skeleton-btn {
+  background: linear-gradient(90deg, #f3f4f6, #e5e7eb, #f3f4f6);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.3s infinite;
+  border-radius: 999px;
+}
+
+.skeleton-line.title {
+  width: 75%;
+  height: 20px;
+  margin-bottom: 14px;
+}
+
+.skeleton-line.small {
+  width: 40%;
+  height: 16px;
+  margin-bottom: 18px;
+}
+
+.skeleton-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.skeleton-line.mini {
+  width: 50%;
+  height: 16px;
+}
+
+.skeleton-btn {
+  width: 50%;
+  height: 44px;
+  border-radius: 14px;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+.footer {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+  background: #ffffff;
+  padding: 25px 30px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 -6px 25px rgba(0, 0, 0, 0.04);
+  /* Wrap items on small screens */
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer p {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+
+.theme-btn {
+  width: 44px;
+  height: 44px;
+  padding: 0 !important;
+  justify-content: center;
+}
+
+body.dark {
+  background: #0f172a;
+}
+
+body.dark .app {
+  background: linear-gradient(180deg, #111827, #0f172a);
+  color: #f9fafb;
+}
+
+body.dark .navbar,
+body.dark .recipe-card,
+body.dark .shopping-drawer,
+body.dark .footer,
+body.dark .recipe-modal,
+body.dark .suggestions-box,
+body.dark .category-list button,
+body.dark .search-box,
+body.dark .no-result,
+body.dark .loading-text {
+  background: #1f2937;
+  color: #f9fafb;
+}
+
+body.dark .hero {
+  background:
+    radial-gradient(circle at top right, rgba(252, 128, 25, 0.25), transparent 35%),
+    linear-gradient(135deg, #1f2937, #111827);
+}
+
+body.dark .hero p,
+body.dark .card-info,
+body.dark .empty-list,
+body.dark .instructions,
+body.dark .ingredients-list li,
+body.dark .footer p {
+  color: #d1d5db;
+}
+
+body.dark .search-box input {
+  background: transparent;
+  color: #f9fafb;
+}
+
+body.dark .search-box input::placeholder {
+  color: #9ca3af;
+}
+
+body.dark .suggestion-item:hover,
+body.dark .add-btn,
+body.dark .section-header button,
+body.dark .nav-links a,
+body.dark .nav-links button {
+  background: #374151;
+  color: #f9fafb;
+}
+
+body.dark .card-img {
+  background: #374151;
+}
+
+body.dark .view-btn,
+body.dark .cart-btn,
+body.dark .clear-btn {
+  background: #fc8019 !important;
+  color: #fff !important;
+}
+
+body.dark .add-btn {
+  border-color: #4b5563;
+}
+
+body.dark .modal-tags span,
+body.dark .item-count {
+  background: #374151;
+  color: #fc8019;
+}
+
+body.dark .empty-list {
+  background: #111827;
+  border-color: #374151;
+}
+
+body.dark .pagination button {
+  background: #1f2937;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+body.dark .pagination button.active {
+  background: #fc8019;
+  color: #fff;
+}
+
+body.dark .skeleton-card {
+  background: #1f2937;
+}
+
+body.dark .skeleton-img,
+body.dark .skeleton-line,
+body.dark .skeleton-btn {
+  background: linear-gradient(90deg, #374151, #4b5563, #374151);
+  background-size: 200% 100%;
+}
+
+body.dark .shopping-items li {
+  background: #374151;
+  color: #f9fafb;
+}
+
+/* ============================================================
+   NAVBAR FULL RESPONSIVE FIX (all screen sizes)
+   ============================================================ */
+  /* ---------- Large screens (1024px and below) ---------- */
+  @media (max-width: 1024px) {
+
+    
+    .navbar {
+      padding: 14px 18px;
+      gap: 8px;
+    }
+  
+    .logo {
+      font-size: 20px;
+    }
+  
+    .nav-links {
+      gap: 8px;
+    }
+  
+    .nav-links a,
+    .nav-links button {
+      padding: 10px 14px;
+      font-size: 13px;
+    }
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .shopping-drawer {
+      width: 100%;
+      position: static;
+    }
+
+    .hero {
+      display: flex !important;
+      flex-direction: column !important;
+      text-align: center !important;
+      padding: 28px 20px !important;
+      gap: 24px !important;
+      overflow: hidden !important;
+    }
+  
+    .hero-content {
+      width: 100% !important;
+      order: 1;
+    }
+  
+    .hero h1 {
+      font-size: 30px !important;
+      line-height: 1.2 !important;
+    }
+  
+    .hero p {
+      font-size: 14px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+  
+    .hero-img {
+      order: 2;
+      width: 200px !important;
+      height: 200px !important;
+      margin: 0 auto !important;
+      position: relative !important;
+      z-index: 1 !important;
+    }
+  
+    .search-box {
+      order: 3;
+      flex-direction: column !important;
+      width: 100% !important;
+      border-radius: 22px !important;
+      padding: 12px !important;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .search-icon {
+      display: none !important;
+    }
+  
+    .search-box input {
+      width: 100% !important;
+      text-align: center !important;
+      padding: 13px !important;
+    }
+  
+    .search-box button {
+      width: 100% !important;
+    }
+  
+  
+  }
+  
+  /* ---------- Tablets (992px and below) ---------- */
+  @media (max-width: 992px) {
+    .navbar {
+      padding: 14px 16px;
+      gap: 6px;
+    }
+  
+    .logo {
+      font-size: 18px;
+    }
+  
+    .nav-links {
+      gap: 6px;
+      max-width: 65%;
+    }
+  }
+  
+  /* ---------- Small tablets / large phones (768px and below) ---------- */
+  @media (max-width: 768px) {
+    .navbar {
+      padding: 12px 14px;
+    }
+  
+    .logo {
+      font-size: 17px;
+      gap: 6px;
+    }
+  
+    .nav-links a,
+    .nav-links button {
+      padding: 9px 12px;
+      font-size: 12.5px;
+    }
+  
+    .theme-btn {
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+    }
+  }
+  
+  /* ---------- Mobile (650px and below) ---------- */
+  @media (max-width: 650px) {
+    .navbar {
+      padding: 12px 12px;
+      gap: 6px;
+    }
+  
+    .logo {
+      font-size: 15px;
+      gap: 5px;
+    }
+  
+    .logo span {
+      display: inline;
+    }
+  
+    .nav-links {
+      gap: 5px;
+      max-width: 60%;
+    }
+  
+    .nav-links a,
+    .nav-links button {
+      padding: 8px 10px;
+      font-size: 11.5px;
+    }
+  
+    .theme-btn {
+      width: 34px;
+      height: 34px;
+      min-width: 34px;
+      padding: 0 !important;
+    }
+  }
+  
+  /* ---------- Extra small phones (480px and below) ---------- */
+  @media (max-width: 480px) {
+    .navbar {
+      padding: 10px 10px;
+      gap: 4px;
+    }
+  
+    .logo {
+      font-size: 13px;
+      gap: 4px;
+    }
+  
+    .nav-links {
+      max-width: 58%;
+      gap: 4px;
+    }
+  
+    .nav-links a,
+    .nav-links button {
+      padding: 7px 9px;
+      font-size: 11px;
+      border-radius: 999px;
+    }
+  
+    .nav-links a svg,
+    .nav-links button svg {
+      font-size: 14px;
+    }
+  
+    .theme-btn {
+      width: 32px;
+      height: 32px;
+      min-width: 32px;
+    }
+  }
+  
+  /* ---------- Ultra small (380px and below, e.g. Galaxy Z Fold) ---------- */
+  @media (max-width: 380px) {
+    .logo {
+      font-size: 12px;
+    }
+  
+    .logo span {
+      display: none; /* "Hub" hide, only "Recipe" dekhabe */
+    }
+  
+    .nav-links {
+      max-width: 65%;
+      gap: 3px;
+    }
+  
+    .nav-links a,
+    .nav-links button {
+      padding: 6px 8px;
+      font-size: 10px;
+    }
+  
+    .theme-btn {
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
+    }
+  }
