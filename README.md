@@ -1,16 +1,29 @@
-# React + Vite
+# RecipeHub
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+RecipeHub is a modern recipe discovery web application built with React. It allows users to explore thousands of recipes, search for meals, filter by categories, save favorite dishes, and create shopping lists from recipe ingredients.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Search recipes by name
+- Browse recipes by category
+- View detailed recipe information
+- Save favorite recipes
+- Create and manage shopping lists
+- Responsive design for mobile and desktop
+- Fast and intuitive user interface
 
-## React Compiler
+## Technologies Used
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React.js
+- JavaScript (ES6+)
+- CSS3
+- Local Storage
+- MealDB API
 
-## Expanding the ESLint configuration
+## Future Improvements
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- User authentication
+- Meal planning calendar
+- Recipe ratings and reviews
+- Dark mode enhancements
+- Personalized recipe recommendations
